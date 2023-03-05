@@ -7,7 +7,19 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.7",
+    "pinia": "^2.0.32"
+  },
   "devDependencies": {
-    "nuxt": "^3.2.3"
+    "@unocss/eslint-config": "^0.50.3",
+    "@unocss/nuxt": "^0.50.3",
+    "@vinicunca/eslint-config": "^1.6.2",
+    "@vinicunca/js-utilities": "^2.8.0",
+    "eslint": "^8.32.0",
+    "eslint-define-config": "^1.14.0",
+    "nuxt": "^3.2.3",
+    "typescript": "^4.9.5",
+    "unocss": "^0.50.3"
   }
 }
