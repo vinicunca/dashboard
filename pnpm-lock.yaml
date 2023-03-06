@@ -2,10 +2,12 @@ lockfileVersion: 5.4
 
 specifiers:
   '@pinia/nuxt': ^0.4.7
+  '@types/crypto-js': ^4.1.1
   '@unocss/eslint-config': ^0.50.3
   '@unocss/nuxt': ^0.50.3
   '@vinicunca/eslint-config': ^1.6.2
   '@vinicunca/js-utilities': ^2.8.0
+  crypto-js: ^4.1.1
   eslint: ^8.32.0
   eslint-define-config: ^1.14.0
   nuxt: ^3.2.3
@@ -16,9 +18,11 @@ specifiers:
 
 dependencies:
   '@pinia/nuxt': 0.4.7_typescript@4.9.5
+  crypto-js: 4.1.1
   pinia: 2.0.32_typescript@4.9.5
 
 devDependencies:
+  '@types/crypto-js': 4.1.1
   '@unocss/eslint-config': 0.50.3_ycpbpc6yetojsgtrx3mwntkhsu
   '@unocss/nuxt': 0.50.3
   '@vinicunca/eslint-config': 1.6.2_ycpbpc6yetojsgtrx3mwntkhsu
@@ -1620,6 +1624,10 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
 
@@ -2928,6 +2936,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+    dev: false
 
   /css-declaration-sorter/6.3.1_postcss@8.4.21:
     resolution: {integrity: sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==}

@@ -1,4 +1,6 @@
 {
+  "name": "vinicunca-admin",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -9,9 +11,11 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.7",
+    "crypto-js": "^4.1.1",
     "pinia": "^2.0.32"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
     "@unocss/eslint-config": "^0.50.3",
     "@unocss/nuxt": "^0.50.3",
     "@vinicunca/eslint-config": "^1.6.2",
