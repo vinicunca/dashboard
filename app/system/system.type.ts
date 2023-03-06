@@ -1,4 +1,4 @@
-import { type CONTENT_TYPE, type PERMISSION_MODE, type ROUTER_TRANSITION, type SESSION_TIMEOUT_PROCESSING, type SETTING_BUTTON_POSITION, type THEME_TYPE } from './config.entity';
+import { type CONTENT_TYPE, type PERMISSION_MODE, type ROUTER_TRANSITION, type SESSION_TIMEOUT_PROCESSING, type SETTING_BUTTON_POSITION, type THEME_TYPE } from './system.entity';
 
 import { type MENU_MODE, type MENU_TYPE, type MIX_SIDEBAR_TRIGGER, type TRIGGER_TYPE } from '~~/app/menu/menu.entity';
 import { type CACHE_TYPE } from '~~/app/cache/cache.entity';
@@ -115,4 +115,17 @@ export interface TransitionSetting {
   openPageLoading: boolean;
   // Whether to open the top progress bar
   openNProgress: boolean;
+}
+
+export interface GlobEnvConfig {
+  // Site title
+  VITE_GLOB_APP_TITLE: string;
+  // Service interface url
+  VITE_GLOB_API_URL: string;
+  // Service interface url prefix
+  VITE_GLOB_API_URL_PREFIX?: string;
+  // Project abbreviation
+  VITE_GLOB_APP_SHORT_NAME: string;
+  // Upload url
+  VITE_GLOB_UPLOAD_URL?: string;
 }
