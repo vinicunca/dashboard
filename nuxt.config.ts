@@ -15,6 +15,12 @@ export default defineNuxtConfig({
     },
   },
 
+  // TODO: https://github.com/unocss/unocss/issues/2113#issuecomment-1423045289
+  sourcemap: {
+    server: true,
+    client: false,
+  },
+
   typescript: {
     shim: false,
   },
