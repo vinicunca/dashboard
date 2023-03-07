@@ -119,64 +119,62 @@ export class Persistent {
   }
 }
 
-export function initiatePlugin() {
-  window.addEventListener('beforeunload', () => {
-    // TOKEN_KEY 在登录或注销时已经写入到storage了，此处为了解决同时打开多个窗口时token不同步的问题
-    // LOCK_INFO_KEY 在锁屏和解锁时写入，此处也不应修改
+window.addEventListener('beforeunload', () => {
+  // TOKEN_KEY 在登录或注销时已经写入到storage了，此处为了解决同时打开多个窗口时token不同步的问题
+  // LOCK_INFO_KEY 在锁屏和解锁时写入，此处也不应修改
 
-    /**
-     * TOKEN_KEY has been written to storage when logging in or logging out,
-     * here is to solve the problem that
-     * the token is not synchronized when
-     * multiple windows are opened at the same time
-     */
+  /**
+   * TOKEN_KEY has been written to storage when logging in or logging out,
+   * here is to solve the problem that
+   * the token is not synchronized when
+   * multiple windows are opened at the same time
+   */
 
-    /**
-     * LOCK_INFO_KEY is written when
-     * the screen is locked and unlocked,
-     * and should not be modified here
-     */
+  /**
+   * LOCK_INFO_KEY is written when
+   * the screen is locked and unlocked,
+   * and should not be modified here
+   */
 
-    ls.set({
-      key: APP_LOCAL_CACHE_KEY,
-      value: {
-        ...omitProps(localMemory.getCache, [LOCK_INFO_KEY]),
-        ...pickProps(
-          ls.get({ key: APP_LOCAL_CACHE_KEY }),
-          [TOKEN_KEY, USER_INFO_KEY, LOCK_INFO_KEY],
-        ),
-      },
-    });
-    ss.set({
-      key: APP_SESSION_CACHE_KEY,
-      value: {
-        ...omitProps(sessionMemory.getCache, [LOCK_INFO_KEY]),
-        ...pickProps(
-          ss.get({ key: APP_SESSION_CACHE_KEY }),
-          [TOKEN_KEY, USER_INFO_KEY, LOCK_INFO_KEY]),
-      },
-    });
+  ls.set({
+    key: APP_LOCAL_CACHE_KEY,
+    value: {
+      ...omitProps(localMemory.getCache, [LOCK_INFO_KEY]),
+      ...pickProps(
+        ls.get({ key: APP_LOCAL_CACHE_KEY }),
+        [TOKEN_KEY, USER_INFO_KEY, LOCK_INFO_KEY],
+      ),
+    },
   });
+  ss.set({
+    key: APP_SESSION_CACHE_KEY,
+    value: {
+      ...omitProps(sessionMemory.getCache, [LOCK_INFO_KEY]),
+      ...pickProps(
+        ss.get({ key: APP_SESSION_CACHE_KEY }),
+        [TOKEN_KEY, USER_INFO_KEY, LOCK_INFO_KEY]),
+    },
+  });
+});
 
-  function storageChange(event: StorageEvent) {
-    const { key, newValue, oldValue } = event;
+function storageChange(event: StorageEvent) {
+  const { key, newValue, oldValue } = event;
 
-    if (!key) {
-      Persistent.clearAll();
-      return;
-    }
-
-    if (!!newValue && !!oldValue) {
-      if (APP_LOCAL_CACHE_KEY === key) {
-        Persistent.clearLocal();
-      }
-      if (APP_SESSION_CACHE_KEY === key) {
-        Persistent.clearSession();
-      }
-    }
+  if (!key) {
+    Persistent.clearAll();
+    return;
   }
 
-  window.addEventListener('storage', storageChange);
-
-  initPersistentMemory();
+  if (!!newValue && !!oldValue) {
+    if (APP_LOCAL_CACHE_KEY === key) {
+      Persistent.clearLocal();
+    }
+    if (APP_SESSION_CACHE_KEY === key) {
+      Persistent.clearSession();
+    }
+  }
 }
+
+window.addEventListener('storage', storageChange);
+
+initPersistentMemory();
