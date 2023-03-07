@@ -2,9 +2,11 @@ import { THEME_TYPE } from './system.entity';
 
 export const darkMode = THEME_TYPE.LIGHT;
 
+export const primaryColor = '#0960bd';
+
 // app theme preset color
 export const APP_PRESET_COLOR_LIST: string[] = [
-  '#0960bd',
+  primaryColor,
   '#0084f4',
   '#009688',
   '#536dfe',
@@ -31,7 +33,7 @@ export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
 ];
 
 // sider preset color
-export const SIDE_BAR_BG_COLOR_LIST: string[] = [
+export const SIDEBAR_BG_COLOR_LIST: string[] = [
   '#001529',
   '#212121',
   '#273352',
